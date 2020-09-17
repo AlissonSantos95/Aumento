@@ -8,7 +8,7 @@ import reportlab
 import pdfkit
 import tkinter as tk
 from Login_Page import Login
-
+from win32api import GetSystemMetrics
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------#
@@ -18,8 +18,14 @@ from Login_Page import Login
 
 
 Aumento = tk.Tk()
+width_of_window = 739
+height_of_windows= 499
+LarguraMonitor = GetSystemMetrics(0)
+AlturaMonitor = GetSystemMetrics(1)
+x_cordinate = (LarguraMonitor/2) - (width_of_window/2)
+y_cordinate = (AlturaMonitor/2) - (height_of_windows/2)
+Aumento.geometry("%dx%d+%d+%d" % (width_of_window, height_of_windows, x_cordinate, y_cordinate))
 Aumento.title("Aumento Salarial")
-Aumento.geometry("739x499+509+249")
 Aumento.minsize(116, 1)
 Aumento.maxsize(1924, 1062)
 Aumento.resizable(1, 1)
