@@ -11,8 +11,7 @@ import webbrowser
 from tkinter import PhotoImage
 from tkinter import * 
 from tkinter.ttk import *
-from win32api import GetSystemMetrics
-
+from PIL import Image, ImageTk
 
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim Importação de modulos-----------------------------------------------------------#
@@ -20,47 +19,45 @@ from win32api import GetSystemMetrics
 #-----------------------------------------------------------------------------------------------------------------------------------#
 Login = tk.Tk()
 
+
+filename = PhotoImage(file ="LoginUI.png")
+background_label = Label(Login, image=filename)
+background_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+
 width_of_window = 450
 height_of_windows= 350
-LarguraMonitor = GetSystemMetrics(0)
-AlturaMonitor = GetSystemMetrics(1)
+LarguraMonitor = Login.winfo_screenwidth()
+AlturaMonitor = Login.winfo_screenheight()
 x_cordinate = (LarguraMonitor/2) - (width_of_window/2)
 y_cordinate = (AlturaMonitor/2) - (height_of_windows/2)
 Login.geometry("%dx%d+%d+%d" % (width_of_window, height_of_windows, x_cordinate, y_cordinate))
 Login.title("Aumento Salarial")
 Login.minsize(116, 1)
 Login.maxsize(1920, 1080)
-Login.resizable(1, 1)
+Login.resizable(0, 0)
 Login.update_idletasks()
 Login.overrideredirect(1)
+
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim definições da janela principal--------------------------------------------------#
 #-----------------------------------------------Inicio Inputs.----------------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
 
 Usuario = tk.Entry(Login)
-Usuario.place(relx=0.295, rely=0.325,height=30, relwidth=0.400)
-Usuario.configure(background="white")
-Usuario.configure(disabledforeground="#a3a3a3")
+Usuario.place(relx=0.330, rely=0.250,height=30, relwidth=0.350)
 Usuario.configure(font="TkFixedFont")
-Usuario.configure(foreground="#000000")
-Usuario.configure(highlightbackground="#d9d9d9")
 Usuario.configure(highlightcolor="black")
-Usuario.configure(insertbackground="black")
-Usuario.configure(selectbackground="blue")
-Usuario.configure(selectforeground="white")
+Usuario.configure(borderwidth=0)
+Usuario.configure(justify="center")
 
 Senha1 = tk.Entry(Login)
-Senha1.place(relx=0.295, rely=0.525,height=30, relwidth=0.400)
-Senha1.configure(background="white")
-Senha1.configure(disabledforeground="#a3a3a3")
+Senha1.place(relx=0.330, rely=0.480,height=30, relwidth=0.350)
 Senha1.configure(font="TkFixedFont")
-Senha1.configure(foreground="#000000")
-Senha1.configure(highlightbackground="#d9d9d9")
 Senha1.configure(highlightcolor="black")
-Senha1.configure(insertbackground="black")
-Senha1.configure(selectbackground="blue")
-Senha1.configure(selectforeground="white")
+Senha1.configure(borderwidth=0)
+Senha1.configure(show="*")
+Senha1.configure(justify="center")
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim dos Inputs----------------------------------------------------------------------#
 #-----------------------------------------------Inicio das Definições---------------------------------------------------------------#
@@ -87,7 +84,7 @@ def LoginA():
 def Sair2():
     msg=tk.messagebox.askyesno("Sair","Gostaria de sair?")
     if (msg):
-          exit()
+          quit
 
 def Registrar():
     msg=tk.messagebox.askyesno("Registrar", "Criar novo usuario?")
@@ -108,17 +105,8 @@ LoginBTN = tk.Label(image=LoginBTN2)
 
 
 LoginB = tk.Button(Login)
-LoginB.place(relx=0.340, rely=0.725, relheight=0.050, relwidth=0.125)
-LoginB.configure(activebackground="#ececec")
-LoginB.configure(activeforeground="#000000")
-LoginB.configure(disabledforeground="#a3a3a3")
-LoginB.configure(foreground="#000000")
-LoginB.configure(highlightbackground="#d9d9d9")
-LoginB.configure(highlightcolor="black")
-LoginB.configure(justify='left')
-LoginB.configure(text='''Login''')
+LoginB.place(relx=0.280, rely=0.625, relheight=0.080, relwidth=0.200)
 LoginB.configure(command=LoginA)
-LoginB.configure(pady=20)
 LoginB.configure(image=LoginBTN2)
 LoginB.configure(borderwidth=0)
 
@@ -128,17 +116,7 @@ SairBTN = tk.Label(image=SairBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Sair = tk.Button(Login)
-Sair.place(relx=0.540, rely=0.725, relheight=0.050, relwidth=0.125)
-Sair.configure(activebackground="#ececec")
-Sair.configure(activeforeground="#000000")
-Sair.configure(disabledforeground="#a3a3a3")
-Sair.configure(foreground="#000000")
-Sair.configure(highlightbackground="#d9d9d9")
-Sair.configure(highlightcolor="black")
-Sair.configure(justify='left')
-Sair.configure(text='''Sair''')
-Sair.configure(command=Sair)
-Sair.configure(pady=20)
+Sair.place(relx=0.540, rely=0.625, relheight=0.0800, relwidth=0.200)
 Sair.configure(command=Sair2)
 Sair.configure(image=SairBTN2)
 Sair.configure(borderwidth=0)
@@ -149,17 +127,8 @@ RegistroBTN = tk.Label(image=RegistroBTN2)
 #-------------Fim Image do botão Registro-------------------------------#
 
 Registro = tk.Button(Login)
-Registro.place(relx=0.540, rely=0.825, relheight=0.050, relwidth=0.125)
-Registro.configure(activebackground="#ececec")
-Registro.configure(activeforeground="#000000")
-Registro.configure(disabledforeground="#a3a3a3")
-Registro.configure(foreground="#000000")
-Registro.configure(highlightbackground="#d9d9d9")
-Registro.configure(highlightcolor="black")
-Registro.configure(justify='left')
-Registro.configure(text='''Registro''')
+Registro.place(relx=0.405, rely=0.725, relheight=0.0800, relwidth=0.200)
 Registro.configure(command=Registrar)
-Registro.configure(pady=20)
 Registro.configure(image=RegistroBTN2)
 Registro.configure(borderwidth=0)
 
@@ -169,17 +138,8 @@ GitHUBBTN = tk.Label(image=GitHUBBTN2)
 #-------------Fim Image do botão GitHub-------------------------------#
 
 Github = tk.Button(Login)
-Github.place(relx=0.340, rely=0.825, relheight=0.050, relwidth=0.125)
-Github.configure(activebackground="#ececec")
-Github.configure(activeforeground="#000000")
-Github.configure(disabledforeground="#a3a3a3")
-Github.configure(foreground="#000000")
-Github.configure(highlightbackground="#d9d9d9")
-Github.configure(highlightcolor="black")
-Github.configure(justify='left')
-Github.configure(text='''GitHub''')
+Github.place(relx=0.405, rely=0.8900, relheight=0.0800, relwidth=0.200)
 Github.configure(command=GitHUB)
-Github.configure(pady=20)
 Github.configure(image=GitHUBBTN2)
 Github.configure(borderwidth=0)
 #-----------------------------------------------------------------------------------------------------------------------------------#
