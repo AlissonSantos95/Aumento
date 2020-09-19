@@ -88,7 +88,7 @@ def LoginA():
 def Sair2():
     msg=tk.messagebox.askyesno("Sair","Gostaria de sair?")
     if (msg):
-          exit()
+          sys.exit()
 
 def Registrar():
     msg=tk.messagebox.askyesno("Registrar", "Criar novo usuario?")
