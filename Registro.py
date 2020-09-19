@@ -22,8 +22,8 @@ filename = PhotoImage(file = "LoginUI.png")
 background_label = Label(Registro, image=filename)
 background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-width_of_window = 450
-height_of_windows= 350
+width_of_window = 812
+height_of_windows= 612
 LarguraMonitor = Registro.winfo_screenwidth()
 AlturaMonitor = Registro.winfo_screenheight()
 x_cordinate = (LarguraMonitor/2) - (width_of_window/2)
@@ -41,14 +41,14 @@ Registro.overrideredirect(1)
 #-----------------------------------------------------------------------------------------------------------------------------------#
 
 Usuario2 = tk.Entry(Registro)
-Usuario2.place(relx=0.330, rely=0.250,height=30, relwidth=0.350)
+Usuario2.place(relx=0.358, rely=0.533,height=28, relwidth=0.305)
 Usuario2.configure(font="TkFixedFont")
 Usuario2.configure(highlightcolor="black")
 Usuario2.configure(borderwidth=0)
 Usuario2.configure(justify="center")
 
 Senha2 = tk.Entry(Registro)
-Senha2.place(relx=0.330, rely=0.480,height=30, relwidth=0.350)
+Senha2.place(relx=0.358, rely=0.679,height=28, relwidth=0.305)
 Senha2.configure(font="TkFixedFont")
 Senha2.configure(insertbackground="black")
 Senha2.configure(borderwidth=0)
@@ -66,6 +66,7 @@ def Registrar():
      if (msg):
           pickle.dump(Usuario3, open("dat1.dat", "wb"))
           pickle.dump(Senha3, open("dat2.dat", "wb"))
+          Registro.destroy()
 
 
 def Sair2():
@@ -83,7 +84,7 @@ SairBTN = tk.Label(image=SairBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Sair12 = tk.Button(Registro)
-Sair12.place(relx=0.540, rely=0.725, relheight=0.080, relwidth=0.200)
+Sair12.place(relx=0.533, rely=0.760, relheight=0.058, relwidth=0.145)
 Sair12.configure(command=Sair2)
 Sair12.configure(image=SairBTN2)
 Sair12.configure(borderwidth=0)
@@ -94,7 +95,7 @@ RegistroBTN = tk.Label(image=RegistroBTN2)
 #-------------Fim Image do botão Registro-------------------------------#
 
 Registro1 = tk.Button(Registro)
-Registro1.place(relx=0.320, rely=0.725, relheight=0.080, relwidth=0.200)
+Registro1.place(relx=0.335, rely=0.760, relheight=0.058, relwidth=0.145)
 Registro1.configure(command=Registrar)
 Registro1.configure(image=RegistroBTN2)
 Registro1.configure(borderwidth=0)

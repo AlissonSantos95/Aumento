@@ -28,8 +28,8 @@ background_label.place(x=0, y=0)
 
 
 
-width_of_window = 987
-height_of_windows= 760
+width_of_window = 1035
+height_of_windows= 730
 LarguraMonitor = Aumento.winfo_screenwidth()
 AlturaMonitor = Aumento.winfo_screenheight()
 x_cordinate = (LarguraMonitor/2) - (width_of_window/2)
@@ -245,7 +245,7 @@ def AnalfabetoE():
                           f.write("Salario:" + Soldo +"\n")
                           f.write("-------------------------------------------------------------------------------------------\n")
 def SuperiorD():
-         print("teste")
+         
          Formacao = "S"
          nomes = Nome1.get()
          idades = Idade.get()
@@ -282,6 +282,8 @@ def SuperiorD():
                           #f.write("Aumento de:" + aumento + "\n")
                           f.write("Salario:" + Soldo +"\n")
                           f.write("-------------------------------------------------------------------------------------------\n")
+
+
 def DoutoradoF():
          Formacao = "D"
          nomes =Nome1.get()
@@ -337,10 +339,10 @@ fundamentalLBTN = tk.Label(image=fundamentalBTN2)
 #-------------Fim Image do botão Fundamental-------------------------------#
 
 fundamental = tk.Button(Aumento)
-fundamental.place(relx=0.369, rely=0.19, relheight=0.06, relwidth=0.14)
+fundamental.place(relx=0.650, rely=0.20, height=32, relwidth=0.125)
 fundamental.configure(command=FundamentalA)
 fundamental.configure(image=fundamentalBTN2)
-fundamental.configure(borderwidth=0)
+fundamental.configure(borderwidth=1)
 
 #----------------Imagem do botão Medio-------------------------------#
 MedioBTN2 = PhotoImage(file="MedioBN.png")
@@ -348,10 +350,10 @@ MedioBTN = tk.Label(image=MedioBTN2)
 #-------------Fim Image do botão Medio-------------------------------#
 
 Medio = tk.Button(Aumento)
-Medio.place(relx=0.369, rely=0.26, relheight=0.06, relwidth=0.14)
+Medio.place(relx=0.840, rely=0.20, height=32, relwidth=0.125)
 Medio.configure(command=MedioB)
 Medio.configure(image=MedioBTN2)
-Medio.configure(borderwidth=0)
+Medio.configure(borderwidth=1)
 
 #----------------Imagem do botão Tecnico-------------------------------#
 TecnicoBTN2 = PhotoImage(file="TecnicoBN.png")
@@ -359,10 +361,10 @@ TecnicoBTN = tk.Label(image=TecnicoBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Tecnico = tk.Button(Aumento)
-Tecnico.place(relx=0.578, rely=0.26, relheight=0.06, relwidth=0.14)
+Tecnico.place(relx=0.478, rely=0.28, height=32, relwidth=0.125)
 Tecnico.configure(command=TecnicoC)
 Tecnico.configure(image=TecnicoBTN2)
-Tecnico.configure(borderwidth=0)
+Tecnico.configure(borderwidth=1)
 
 #----------------Imagem do botão login-------------------------------#
 AnalfabetoBTN2 = PhotoImage(file="AnalfabetoBN.png")
@@ -370,10 +372,10 @@ analfabetoBTN = tk.Label(image=AnalfabetoBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Analfabeto = tk.Button(Aumento)
-Analfabeto.place(relx=0.578, rely=0.19, relheight=0.06, relwidth=0.14)
+Analfabeto.place(relx=0.478, rely=0.20, height=32, relwidth=0.125)
 Analfabeto.configure(command=AnalfabetoE)
 Analfabeto.configure(image=AnalfabetoBTN2)
-Analfabeto.configure(borderwidth=0)
+Analfabeto.configure(borderwidth=1)
 
 #----------------Imagem do botão login-------------------------------#
 SuperiorBTN2 = PhotoImage(file="SuperiorBN.png")
@@ -381,9 +383,9 @@ SuperiorBTN = tk.Label(image=SuperiorBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Superior = tk.Button(Aumento)
-Superior.place(relx=0.788, rely=0.19, relheight=0.06, relwidth=0.14)
+Superior.place(relx=0.650, rely=0.28, height=32, relwidth=0.125)
 Superior.configure(command=SuperiorD)
-Superior.configure(borderwidth=0)
+Superior.configure(borderwidth=1)
 Superior.configure(image=SuperiorBTN2)
 
 #----------------Imagem do botão login-------------------------------#
@@ -392,7 +394,7 @@ PDFBTN = tk.Label(image=PDFBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 PDF = tk.Button(Aumento)
-PDF.place(relx=0.112, rely=0.800, relheight=0.07, relwidth=0.15)
+PDF.place(relx=0.150112, rely=0.915, height=32, relwidth=0.125)
 PDF.configure(command=exportar)
 PDF.configure(image=PDFBTN2)
 PDF.configure(borderwidth=1)
@@ -403,10 +405,10 @@ DoutorBTN = tk.Label(image=DoutorBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 Doutorado = tk.Button(Aumento)
-Doutorado.place(relx=0.788, rely=0.26, relheight=0.06, relwidth=0.14)
+Doutorado.place(relx=0.840, rely=0.28, height=32, relwidth=0.125)
 Doutorado.configure(command=DoutoradoF)
 Doutorado.configure(image=DoutorBTN2)
-Doutorado.configure(borderwidth=0)
+Doutorado.configure(borderwidth=1)
 
 #----------------Imagem do botão login-------------------------------#
 SairBTN3 = PhotoImage(file="SairBN.png")
@@ -414,7 +416,7 @@ SairBTN = tk.Label(image=SairBTN3)
 #-------------Fim Image do botão login-------------------------------#
 
 Sair3 = tk.Button(Aumento)
-Sair3.place(relx=0.830, rely=0.09, relheight=0.04, relwidth=0.10)
+Sair3.place(relx=0.650, rely=0.04, height=32, relwidth=0.125)
 Sair3.configure(command=SairNew)
 Sair3.configure(image=SairBTN3)
 Sair3.configure(borderwidth=1)
@@ -424,39 +426,39 @@ Sair3.configure(borderwidth=1)
 #-----------------------------------------------------------------------------------------------------------------------------------#
 
 funcionario = tk.Entry(Aumento)
-funcionario.place(relx=0.085, rely=0.11,height=27, relwidth=0.220)
+funcionario.place(relx=0.219, rely=0.20,height=25, relwidth=0.182)
 funcionario.configure(font="TkFixedFont")
 funcionario.configure(highlightcolor="black")
-funcionario.configure(borderwidth=0)
+funcionario.configure(borderwidth=2)
 funcionario.configure(justify="center")
 
 Nome1 = tk.Entry(Aumento)
-Nome1.place(relx=0.085, rely=0.25,height=29, relwidth=0.220)
+Nome1.place(relx=0.219, rely=0.27,height=25, relwidth=0.182)
 Nome1.configure(font="TkFixedFont")
 Nome1.configure(highlightcolor="black")
-Nome1.configure(borderwidth=0)
+Nome1.configure(borderwidth=2)
 Nome1.configure(justify="center")
 
 Idade = tk.Entry(Aumento)
-Idade.place(relx=0.085, rely=0.38,height=29, relwidth=0.220)
+Idade.place(relx=0.219, rely=0.33,height=25, relwidth=0.182)
 Idade.configure(font="TkFixedFont")
 Idade.configure(highlightcolor="black")
-Idade.configure(borderwidth=0)
+Idade.configure(borderwidth=2)
 Idade.configure(justify="center")
 
-Exp = tk.Entry(Aumento)
-Exp.place(relx=0.085, rely=0.65,height=29, relwidth=0.220)
-Exp.configure(font="TkFixedFont")
-Exp.configure(highlightcolor="black")
-Exp.configure(borderwidth=0)
-Exp.configure(justify="center")
-
 Salario = tk.Entry(Aumento)
-Salario.place(relx=0.085, rely=0.51,height=29, relwidth=0.220)
+Salario.place(relx=0.219, rely=0.39,height=25, relwidth=0.182)
 Salario.configure(font="TkFixedFont")
 Salario.configure(highlightcolor="black")
-Salario.configure(borderwidth=0)
+Salario.configure(borderwidth=2)
 Salario.configure(justify="center")
+
+Exp = tk.Entry(Aumento)
+Exp.place(relx=0.219, rely=0.45,height=25, relwidth=0.182)
+Exp.configure(font="TkFixedFont")
+Exp.configure(highlightcolor="black")
+Exp.configure(borderwidth=2)
+Exp.configure(justify="center")
 
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim Botões--------------------------------------------------------------------------#
