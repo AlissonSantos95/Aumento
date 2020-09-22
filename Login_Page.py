@@ -84,11 +84,11 @@ def LoginA():
      Registro12 = pickle.load(open("dat2.dat", "rb"))
      if Usuario2 == Registro12 :
              if Senha2== Registro13:
-              msg=tk.messagebox.showinfo("Login", "Sucesso!")
+              msg=messagebox.showinfo("Login", "Sucesso!")
               if (msg):
                   Login.destroy()
      if Usuario2 != Registro13:
-         msg=tk.messagebox.showinfo("Login", "Erro de senha/usuario")
+         msg=messagebox.showinfo("Login", "Erro de senha/usuario")
      if Senha2 != Registro12:
          msg=tk.messagebox.showinfo("Login", "Erro de senha/usuario")
 
