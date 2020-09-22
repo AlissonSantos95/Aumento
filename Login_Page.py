@@ -13,20 +13,25 @@ from tkinter import *
 from tkinter.ttk import *
 from PIL import Image, ImageTk
 from time import time 
+from tkinter import ttk
+from ttkthemes import themed_tk as tk
+import sqlite3
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim Importação de modulos-----------------------------------------------------------#
 #-----------------------------------------------Inicio criação da janela principal--------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
-Login = tk.Tk()
+
+Login = tk.ThemedTk()
+Login.get_themes()
+Login.set_theme("plastik")
 
 
-filename = PhotoImage(file ="LoginUI.png")
-background_label = Label(Login, image=filename)
-background_label.place(x=0, y=0, relwidth=1, relheight=1)
+#filename = PhotoImage(file ="LoginUI.png")
+#background_label = Label(Login, image=filename)
+#background_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-
-width_of_window = 812
-height_of_windows= 612
+width_of_window = 412
+height_of_windows= 460
 LarguraMonitor = Login.winfo_screenwidth()
 AlturaMonitor = Login.winfo_screenheight()
 x_cordinate = (LarguraMonitor/2) - (width_of_window/2)
@@ -39,24 +44,27 @@ Login.resizable(0, 0)
 Login.update_idletasks()
 Login.overrideredirect(1)
 
+w = Canvas(Login, bg="grey", width=290, height=320)
+w.place(x=63, y=70)
+
+#.create_line(0, 0, 200, 100)
+#w.create_line(0, 100, 200, 0, fill="red", dash=(4, 4))
+
+
 
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------Fim definições da janela principal--------------------------------------------------#
 #-----------------------------------------------Inicio Inputs.----------------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
 
-Usuario = tk.Entry(Login)
-Usuario.place(relx=0.358, rely=0.533,height=28, relwidth=0.305)
+Usuario = Entry(Login)
+Usuario.place(x=110, y=150, height=28, width=205)
 Usuario.configure(font="TkFixedFont")
-Usuario.configure(highlightcolor="black")
-Usuario.configure(borderwidth=0)
 Usuario.configure(justify="center")
 
-Senha1 = tk.Entry(Login)
-Senha1.place(relx=0.358, rely=0.679,height=28, relwidth=0.305)
+Senha1 = Entry(Login)
+Senha1.place(x=110, y=240, height=28, width=205)
 Senha1.configure(font="TkFixedFont")
-Senha1.configure(highlightcolor="black")
-Senha1.configure(borderwidth=0)
 Senha1.configure(show="*")
 Senha1.configure(justify="center")
 #-----------------------------------------------------------------------------------------------------------------------------------#
@@ -86,16 +94,16 @@ def LoginA():
 
 
 def Sair2():
-    msg=tk.messagebox.askyesno("Sair","Gostaria de sair?")
+    msg=messagebox.askyesno("Sair","Gostaria de sair?")
     if (msg):
           sys.exit()
 
 def Registrar():
-    msg=tk.messagebox.askyesno("Registrar", "Criar novo usuario?")
+    msg=messagebox.askyesno("Registrar", "Criar novo usuario?")
     if (msg):
-      os.system("registro.py")
+      os.system("Resgistro.py")
 def GitHUB():
-    msg=tk.messagebox.askyesno("GitHub", "Abrir GITHUB?")
+    msg=messagebox.askyesno("GitHub", "Abrir GITHUB?")
     if(msg):
      url= "https://github.com/AlissonSantos95/Aumento"
      webbrowser.open(url)
@@ -104,56 +112,70 @@ def GitHUB():
 #-----------------------------------------------Inicio Botões------------------------------------------------------------------------------------------------#
 #------------------------------------------------------------------------------------------------------------------------------------------------------------#
 #----------------Imagem do botão login-------------------------------#
-LoginBTN2 = PhotoImage(file="LoginBN.png")
-LoginBTN = tk.Label(image=LoginBTN2)
+#LoginBTN2 = PhotoImage(file="LoginBN.png")
+#LoginBTN = Label(image=LoginBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
 
-LoginB = tk.Button(Login)
-LoginB.place(relx=0.335, rely=0.760, relheight=0.058, relwidth=0.145)
+LoginB = Button(Login)
+LoginB.place(x=77, y=310, relheight=0.058, width=80)
 LoginB.configure(command=LoginA)
-LoginB.configure(image=LoginBTN2)
-LoginB.configure(borderwidth=1)
+#LoginB.configure(image=LoginBTN2)
+LoginB.configure(text="Login")
 
 
 #----------------Imagem do botão login-------------------------------#
-SairBTN2 = PhotoImage(file="SairBN.png")
-SairBTN = tk.Label(image=SairBTN2)
+#SairBTN2 = PhotoImage(file="SairBN.png")
+#SairBTN = Label(image=SairBTN2)
 #-------------Fim Image do botão login-------------------------------#
 
-Sair = tk.Button(Login)
-Sair.place(relx=0.533, rely=0.760, relheight=0.058, relwidth=0.145)
+Sair = Button(Login)
+Sair.place(x=262, y=310, relheight=0.058, width=80)
 Sair.configure(command=Sair2)
-Sair.configure(image=SairBTN2)
-Sair.configure(borderwidth=1)
-
+#Sair.configure(image=SairBTN2)
+Sair.configure(text="Sair")
 #----------------Imagem do botão Registro-------------------------------#
-RegistroBTN2 = PhotoImage(file="RegistroBN.png")
-RegistroBTN = tk.Label(image=RegistroBTN2)
+#RegistroBTN2 = PhotoImage(file="RegistroBN.png")
+#RegistroBTN = Label(image=RegistroBTN2)
 #-------------Fim Image do botão Registro-------------------------------#
 
-Registro = tk.Button(Login)
-Registro.place(relx=0.429, rely=0.827, relheight=0.058, relwidth=0.145)
+Registro = Button(Login)
+Registro.place(x=170, y=310, relheight=0.058, width=80)
 Registro.configure(command=Registrar)
-Registro.configure(image=RegistroBTN2)
-Registro.configure(borderwidth=1)
+#Registro.configure(image=RegistroBTN2)
+Registro.configure(text="Registrar")
 
 #---------------Imagem do botão GitHub--------------------------------#
-GitHUBBTN2 = PhotoImage(file="GitBN.png")
-GitHUBBTN = tk.Label(image=GitHUBBTN2)
+#GitHUBBTN2 = PhotoImage(file="GitBN.png")
+#GitHUBBTN = Label(image=GitHUBBTN2)
 #-------------Fim Image do botão GitHub-------------------------------#
 
-Github = tk.Button(Login)
-Github.place(relx=0.485, rely=0.919, relheight=0.059, relwidth=0.042)
+Github = Button(Login)
+Github.place(x=195, y=350, height=34, width=30)
 Github.configure(command=GitHUB)
-Github.configure(image=GitHUBBTN2)
-Github.configure(borderwidth=1)
+#Github.configure(image=GitHUBBTN2)
+Github.configure(text="GIT")
+
 #-----------------------------------------------------------------------------------------------------------------------------------#
-#-----------------------------------------------Fim do codigo-----------------------------------------------------------------------#
+#-----------------------------------------------Inicio Labels-----------------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
 
+SenhaL = Label(Login)
+SenhaL.place(x=187, y=205, height=28, width=50)
+SenhaL.configure(text="Senha")
+SenhaL.configure(font="Arial")
 
+TxtUsuario5 = Label(Login)
+TxtUsuario5.place(x=182, y=115, height=28, width=60)
+TxtUsuario5.configure(text="Usuário")
+TxtUsuario5.configure(font="Arial")
+TxtUsuario5.configure(justify="center")
+
+#-----------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------fim Labels-----------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------------#
 
 
 # Se alt+f4 é apertado execute------------------------------------------------------------------------------------------------------------
@@ -182,3 +204,7 @@ Login.mainloop()
 
 
 
+#-----------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------Fim do codigo-----------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------------------------------------------------#
