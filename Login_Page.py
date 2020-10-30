@@ -4,7 +4,7 @@ from tkinter import messagebox
 from tkinter.messagebox import showwarning
 from tkinter.messagebox import showinfo
 import pickle
-import reportlab
+#import reportlab
 import pdfkit
 import tkinter as tk
 import webbrowser
@@ -84,11 +84,11 @@ def LoginA():
      Registro12 = pickle.load(open("dat2.dat", "rb"))
      if Usuario2 == Registro12 :
              if Senha2== Registro13:
-              msg=messagebox.showinfo("Login", "Sucesso!")
+              msg=tk.messagebox.showinfo("Login", "Sucesso!")
               if (msg):
                   Login.destroy()
      if Usuario2 != Registro13:
-         msg=messagebox.showinfo("Login", "Erro de senha/usuario")
+         msg=tk.messagebox.showinfo("Login", "Erro de senha/usuario")
      if Senha2 != Registro12:
          msg=tk.messagebox.showinfo("Login", "Erro de senha/usuario")
 

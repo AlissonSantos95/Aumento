@@ -4,7 +4,7 @@ from tkinter import messagebox
 from tkinter.messagebox import showwarning
 from tkinter.messagebox import showinfo
 import pickle
-import reportlab
+#import reportlab
 import pdfkit
 import tkinter as tk
 import webbrowser
@@ -82,7 +82,7 @@ Senha2.configure(justify="center")
 #-----------------------------------------------Fim dos Inputs----------------------------------------------------------------------#
 #-----------------------------------------------Inicio das Definições---------------------------------------------------------------#
 #-----------------------------------------------------------------------------------------------------------------------------------#
-def RegistrarB():
+def Registrar():
      Usuario3 = Usuario2.get()
      Senha3 = Senha2.get()
      msg=messagebox.askyesno("Registro", "Deseja registrar" + Usuario3)
@@ -103,10 +103,10 @@ def Sair2():
 #----------------Imagem do botão login-------------------------------#
 
 
-Registrar    = Button(Registro)
-Registrar.place(x=77, y=310, relheight=0.058, width=80)
-Registrar.configure(command=RegistrarB)
-Registrar.configure(text="Registro")
+LoginB = Button(Registro)
+LoginB.place(x=77, y=310, relheight=0.058, width=80)
+LoginB.configure(command=LoginB)
+LoginB.configure(text="Registro")
 
 
 
