@@ -4,11 +4,11 @@ from tkinter import messagebox
 from tkinter.messagebox import showwarning
 from tkinter.messagebox import showinfo
 import pickle
-import reportlab
+#import reportlab
 import pdfkit
 import tkinter as tk
 from tkinter import * 
-from Login_Page import Login
+#from Login_Page import Login
 from tkinter import PhotoImage
 from tkinter.ttk import *
 from tkinter import ttk
