@@ -4,11 +4,11 @@ from tkinter import messagebox
 from tkinter.messagebox import showwarning
 from tkinter.messagebox import showinfo
 import pickle
-#import reportlab
+
 import pdfkit
 import tkinter as tk
 from tkinter import * 
-#from Login_Page import Login
+from Login_Page import Login
 from tkinter import PhotoImage
 from tkinter.ttk import *
 from tkinter import ttk
@@ -314,7 +314,7 @@ def DoutoradoF():
                           f.write("Salario:" + Soldo +"\n")
                           f.write("-------------------------------------------------------------------------------------------\n")
 def Demitir():
-         Soldo1 = Salario22.get()
+         Soldo1 = Salario2.get()
          Dias = Diasde.get()
          Mes1 = MesT.get()
          filhos2 = filhos.get()
@@ -331,7 +331,7 @@ def Demitir():
          ValorDia = float(ValorMes) /30
          ValorDIAS = float(ValorDia) * float(Dias)
          ValorMeses= float(ValorMes) * int(Mes1)
-         if float(Soldo1) <= 1045 and float(Soldo1 < 1046):
+         if float(Soldo1) <= float(1046):
                 C13 = float(Soldo1) * (7.5/100)
          else:
              if float(Soldo1) >= 1046 and float(Soldo1) < 2090:
@@ -350,7 +350,7 @@ def Demitir():
 
 
 def Pdemitir():
-         Soldo1 = Salario22.get()
+         Soldo1 = Salario2.get()
          Dias = Diasde.get()
          Mes1 = MesT.get()
          filhos2 = filhos.get()
@@ -364,7 +364,7 @@ def Pdemitir():
          ValorDia = float(ValorMes) /30
          ValorDIAS = float(ValorDia) * float(Dias)
          ValorMeses= float(ValorMes) * int(Mes1)
-         if float(Soldo1) <= 1045 and float(Soldo1 < 1046):
+         if float(Soldo1) <= float(1046):
                 C13 = float(Soldo1) * (7.5/100)
          else:
              if float(Soldo1) >= 1046 and float(Soldo1) < 2090:
@@ -382,7 +382,7 @@ def Pdemitir():
          msg=messagebox.showinfo("resultados", results2)
 
 def justac():
-         Soldo1 = Salario22.get()
+         Soldo1 = float(Salario2.get())
          Dias = Diasde.get()
          Mes1 = MesT.get()
          filhos2 = filhos.get()
@@ -392,7 +392,7 @@ def justac():
          FeriasPT=float(FeriasP) / 12
          FeriasPT2=float(FeriasPT) / 3
 
-         if float(Soldo1) <= 1045 and float(Soldo1 < 1046):
+         if float(Soldo1) <= float(1046):
                 C13 = float(Soldo1) * (7.5/100)
          else:
              if float(Soldo1) >= 1046 and float(Soldo1) < 2090:
@@ -508,6 +508,7 @@ Salario2 = Entry(Aumento)
 Salario2.place(x=590, y=5,height=25, width=189)
 Salario2.configure(font="TkFixedFont")
 Salario2.configure(justify="center")
+
 
 MesT = Entry(Aumento)
 MesT.place(x=590, y=45, height=25, width=189)
